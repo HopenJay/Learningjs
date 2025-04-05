@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booleans and if-Statements</title>
+</head>
+<body>
+    <!-- Improving cart quantity project -->
+    <button onclick="console.log(`Cart Quantity: ${cartQuantity += 4}`);
+            if(cartQuantity > 10) {
+            alert('The cart is full');
+            cartQuantity = 10;
+        } else {
+            console.log(cartQuantity);
+        }
+    ">
+        +4
+    </button>
+
+    <button onclick="console.log(`Cart Quantity: ${cartQuantity += 5}`)">
+        +5
+    </button>
+
+    <button onclick="console.log(`Cart Quantity: ${cartQuantity-1}`)">
+        Remove from cart
+    </button>
+
+    <button onclick="console.log(`Cart Quantity: ${cartQuantity -= 2}`)">
+        -2
+    </button>
+    
+    <button onclick="console.log(`Cart Quantity: ${cartQuantity -= 3}`)">
+        -3
+    </button>
+
+    <script>
+        // const hour = 19;
+        // const name = "Jane";
+
+        // if (hour >= 6 && hour < 13) {
+        //     console.log(`Good morning ${name}`);
+        // } else if (hour >= 13 && hour < 17) {
+        //     console.log(`Good afternoon ${name}`);
+        // } else {
+        //     console.log(`Good night! ${name}`);
+        // }
+
+        // const age = 6;
+        // const isHoliday = true;
+
+        // if ((age <= 6 || age >= 65) && !isHoliday) {
+        //     console.log('Discount');
+        // } else {
+        //     console.log('No Discount');
+        // }
+
+        // const rand = Math.random();
+        // let result = '';
+        // const guess = 'heads';
+        
+        // if (rand < 0.5 && guess === result) {
+        //     result = 'heads';
+        //     console.log('You win')
+        // } else {
+        //     result = 'tails'; 
+        //     console.log('You lose!');
+        // }
+
+//         result = (rand < 0.5 && guess === result) ? 'heads' : 'tails';
+// console.log((rand < 0.5 && guess === result) ? 'You win' : 'You lose!');
+        // Improving cart quantity project:
+        let cartQuantity = 0;
+        // let calculation = " ";
+
+        // let name = 'JaynHope';
+
+        // console.log(`My name is: ${name}`);
+
+        // let cost = `${5+3+9}`;
+
+        // console.log(`Cost of food: $${cost}`);
+        
+
+        // let tax =  cost * 0.1;
+
+        // console.log(`Tax(10%): $${tax}`);
+
+        // let totalCost = cost + tax;
+
+        // console.log(`Total cost: $${totalCost}`);
+
+
+    </script>
+</body>
+</html>

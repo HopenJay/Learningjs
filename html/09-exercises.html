@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button class="js-button">9a</button>
+
+    <button class="js-button1">9b</button>
+    
+    <button class="js-button2" onclick="choosing('heads')">
+        heads
+    </button>
+    
+    <button class="js-button3" onclick="choosing('tails')">
+        tails
+    </button>
+
+    <p class="js-p"></p>
+
+    <input type="text" placeholder="Name" class="js-text" onkeydown="clicSub(event)">
+    <button class="js-button4" onclick="clicSub()">Submit</button>
+    <p class="js-p1"></p>
+
+
+
+    <p>Amazon Shipping Calculator</p>
+    <input type="number" placeholder="Cost of order" class="js-cost-input" onkeydown="
+        handleCostKeyDown(event);
+    ">  
+    <button onclick="
+        calculateTotal();
+    ">Calculate</button>
+    <p class="js-total-cost"></p>
+
+
+    <input type="text" class="input1" onkeyup="upward()">
+    <p class="js-p2"></p>
+    <script>
+        const button = document.querySelector('.js-button');
+        const button2 = document.querySelector('.js-button2');
+        const button3 = document.querySelector('.js-button3');
+        const button4 = document.querySelector('.js-button4');
+        const input = document.querySelector('.js-text');
+        const input1 = document.querySelector('.input1');
+
+        const para = document.querySelector('.js-p');
+        const para1 = document.querySelector('.js-p1');
+        const para2 = document.querySelector('.js-p2')
+
+
+        function upward() {
+            return para2.innerHTML = input1.value
+        }
+        function handleCostKeyDown(event) {
+            if (event.key === 'Enter') {
+            calculateTotal();
+        }
+        }
+
+        const inputElement = document.querySelector('.js-cost-input');
+        function calculateTotal() {
+            
+            let cost = Math.ceil(Number(inputElement.value));
+            if (cost < 40) {
+                cost = cost + 10;
+            }
+
+            document.querySelector('.js-total-cost').innerHTML = `$${cost}`;
+        }
+
+        function clicSub() {
+            return para1.innerHTML = `Your name is ${input.value}`;
+        }
+
+        function choosing(value) {
+            return para.innerHTML = `You chose: ${value}`
+        }
+        console.log(button);
+
+        const button1 = document.querySelector('.js-button1');
+        button1.innerHTML = '9b done!';
+    </script>
+</body>
+</html>
+<!--
+ Cart Quantity 
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cart Quantity</title>
+  </head>
+  <body>
+    <button onclick="
+      console.log(`Cart quantity: ${cartQuantity}`);
+    ">Show Quantity</button>
+
+    <button onclick="
+        updateCartQuantity(1);
+    ">Add to Cart</button>
+
+    <button onclick="
+        updateCartQuantity(2);
+    ">+2</button>
+
+    <button onclick="
+        updateCartQuantity(3);
+    ">+3</button>
+
+    <button onclick="
+        updateCartQuantity(4);
+    ">+4</button>
+
+    <button onclick="
+        updateCartQuantity(5);
+    ">+5</button>
+
+     vvv This code was changed. 
+    <button onclick="
+        updateCartQuantity(-1);
+    ">Remove from cart</button>
+
+    <button onclick="
+        updateCartQuantity(-2);
+    ">-2</button>
+
+    <button onclick="
+        updateCartQuantity(-3);
+    ">-3</button>
+     ^^^ This code was changed. ^^^ 
+
+    <button onclick="
+      cartQuantity = 0;
+      console.log('Cart was reset.');
+      console.log(`Cart quantity: ${cartQuantity}`);
+    ">Reset Cart</button>
+
+    <p class="js-quanDisplay"></p>
+
+    <script>
+      let cartQuantity = 0;
+      const para = document.querySelector('.js-quanDisplay');
+
+    //   function updateCartQuantity(value) {
+    //     if (cartQuantity + value > 10) {
+    //     alert('The cart is full');
+    //   }else if(cartQuantity + value < 0){
+    //     alert('Not enough items in the cart');
+    //   } else {
+    //     cartQuantity += value;
+    //     console.log(`Cart quantity: ${cartQuantity}`);
+    //   }
+    //   }
+
+    // function load() {
+    //     return para.innerHTML = `Cart quantity: ${cartQuantity}`;
+    // }
+
+    para.innerHTML = `Cart quantity: ${cartQuantity}`;
+    
+    function updateCartQuantity(value) {
+        // if (cartQuantity === 0) {
+        //     return para.innerHTML = `Cart quantity: ${cartQuantity}`;
+        // }
+
+        if (cartQuantity + value > 10) {
+        alert('The cart is full');
+        return;
+      }
+      
+      if(cartQuantity + value < 0){
+        alert('Not enough items in the cart');
+        return;
+      } 
+
+        cartQuantity += value;
+        console.log(`Cart quantity: ${cartQuantity}`);
+
+        para.innerHTML = `Cart quantity: ${cartQuantity}`;
+    }
+
+    // Note to self I prefer the complete one to the return structure cause I don't understand the return structure that much
+    </script>
+  </body>
+</html>
+-->

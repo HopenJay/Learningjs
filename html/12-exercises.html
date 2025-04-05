@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App</title>
+</head>
+<body>
+    <button class="str ">Start</button>
+    <button class="add" >Add to cart</button>
+    <button class="js-add" >Add</button>
+    <button class="js-rem" >Remove</button>
+    <p class="js-added"></p>
+    <script>
+        const stra = document.querySelector('.str');
+        const adda = document.querySelector('.add');
+        const js_added = document.querySelector('.js-added');
+        const js_add = document.querySelector('.js-add');
+        const js_rem = document.querySelector('.js-rem');
+
+        let messages = 2;
+        let originalTitle = document.title;
+        let toggle = false;
+        let timeOutId;
+        let intervalId;
+
+        js_rem.addEventListener('click', remove)
+        js_add.addEventListener('click', adds)
+        adda.addEventListener('click', added);
+        stra.addEventListener('click', () => {
+            change();
+        })
+        
+        function adds() {
+                messages++;
+                updateTitle();
+                cont();
+        }
+
+        function remove() {
+            messages--;
+            updateTitle();
+            cont();
+            // stop();
+        }
+
+        function updateTitle() {
+            let jsTitle = `(${messages}) New Messages`;
+                if(toggle) {
+                    document.title = jsTitle;
+                } else {
+                    document.title = originalTitle;
+                }
+        }
+
+        // adds();
+        function cont() {
+            if (messages === 0) {
+                clearInterval(intervalId);
+                return;
+            }
+
+            if (!intervalId) {
+            intervalId = setInterval(() => {
+                toggle = !toggle;
+                updateTitle();
+            }, 1000)
+        }
+        } 
+        
+        
+        
+        function stop() {
+            if(messages === 0) {
+                clearInterval(intervalId);
+            }
+        }
+        function added() {
+            // if(js_added.innerText = nu) {
+            //     js_added.innerText = 'Added';
+            // }
+            resetTimer();
+            
+            js_added.innerText = 'Added';
+            timeOutId = setTimeout(() => {
+                js_added.innerText = '';
+            }, 2000);
+            // if(js_added.innerText === 'Added') {
+            // }
+            // clearInterval(intervalId);
+        }
+
+
+        function resetTimer() {
+            if(timeOutId) {
+                clearTimeout(timeOutId);
+            }
+        }
+        function change() {
+            if(stra.innerText === 'Start'){
+                stra.innerText = 'Loading...'
+                setTimeout(() => {
+                    stra.innerText = 'Finished';
+                },1000)
+            } else {
+                stra.innerText = 'Loading...'
+                setTimeout(() => {
+                    stra.innerText = 'Start'
+                },1000)
+            }
+        }
+        const add = () => {
+            console.log(2 + 3);
+        };
+        add();
+        add();
+
+        function runTwice(fun) {
+            fun();
+            fun();
+        };
+
+        runTwice(() => {
+            console.log('12b');
+        });
+        runTwice(add);
+
+        
+    </script>
+</body>
+</html>

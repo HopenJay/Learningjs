@@ -1,0 +1,181 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercises</title>
+</head>
+<body>
+    <script>
+        const basketball = {
+            name: 'basketball',
+            price: 2095
+        };
+        console.log(basketball);
+        basketball.price = 2595;
+        console.log(basketball.price);
+        basketball['delivery-time'] = '3 days';
+        console.log(basketball);
+
+        function comparePrice(product1, product2) {
+            let assumt = product1;
+            let assume = product2;
+            assumt = {
+                name: assumt,
+                price: 1090
+            };
+
+            assume = {
+                name: assume,
+                price: 4090
+            };
+
+            if (assumt.price < assume.price) {
+                console.log(assumt)
+            } else {
+                console.log(assume)
+            }
+        }
+
+        comparePrice('egg', 'biscuit');
+
+        function isSameProduct(product1, product2) {
+            let assumt = product1;
+            let assume = product2;
+
+            assumt = {
+                name: assumt,
+                price: 2050
+            };
+
+            assume = {
+                name: assume,
+                price: 2050
+            };
+
+            if ((assumt.name && assumt.price) === (assume.name&&assume.price)) {
+                return true;
+            } else {
+                return false;
+            }
+
+
+        };
+        console.log(isSameProduct('egg', 'egg'));
+
+        let a = 'Good morning';
+
+        console.log(a.toLowerCase());
+        console.log(a.repeat(2));
+    </script>
+</body>
+</html> -->
+
+<!-- Calculator Project -->
+
+
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <p>
+      <button onclick="
+        updateCalculation(1);
+      ">1</button>
+
+      <button onclick="
+        updateCalculation(2);
+      ">2</button>
+
+      <button onclick="
+        updateCalculation(3);
+      ">3</button>
+
+      <button onclick="
+        updateCalculation(' + ');
+      ">+</button>
+    </p>
+
+    <p>
+      <button onclick="
+        updateCalculation(4);
+      ">4</button>
+
+      <button onclick="
+        updateCalculation(5);
+      ">5</button>
+
+      <button onclick="
+        updateCalculation(6);
+      ">6</button>
+
+      <button onclick="
+        updateCalculation(' - ');
+      ">-</button>
+    </p>
+
+    <p>
+      <button onclick="
+        updateCalculation(7);
+      ">7</button>
+
+      <button onclick="
+        updateCalculation(8);
+      ">8</button>
+
+      <button onclick="
+        updateCalculation(9);
+      ">9</button>
+
+      <button onclick="
+        updateCalculation(' * ');
+      ">*</button>
+    </p>
+
+    <p>
+      <button onclick="
+        updateCalculation(0);
+      ">0</button>
+
+      <button onclick="
+        updateCalculation(' . ');
+      ">.</button>
+
+      <button onclick="
+        // Note: eval() takes a string and runs it as code.
+        // Avoid using eval() in real world projects since
+        // it can potentially be given harmful code to run.
+        // Only use eval() for learning purposes.
+        calculation = eval(calculation);
+        console.log(calculation);
+
+        localStorage.setItem('calculation', calculation);
+      ">=</button>
+
+      <button onclick="
+        updateCalculation(' / ');
+      ">/</button>
+    </p>
+
+    <p>
+      <button onclick="
+        // updateCalculation('');
+        calculation = '';
+        console.log(calculation);
+        localStorage.setItem('calculation', calculation);
+      ">Clear</button>
+    </p>
+
+    <script>
+      let calculation = localStorage.getItem('calculation') || '';
+
+      function updateCalculation(value) {
+        calculation += value;
+        console.log(calculation);
+        localStorage.setItem('calculation', calculation);
+      }
+
+      // localStorage.setItem('calc', JSON.stringify(updateCalculation(value)))
+    </script>
+  </body>
+</html>

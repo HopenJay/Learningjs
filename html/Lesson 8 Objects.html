@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects</title>
+</head>
+<body>
+    <script>
+        // const product = {
+        //     name: 'socs',
+        //     price: 1090
+        // };
+        // console.log(product);
+        // console.log(product.name);
+        // console.log(product.price);
+
+        // product.name = 'cotton socs';
+        // console.log(product);
+
+        // product.newProperty = true;
+        // console.log(product);
+
+        // product.biscuit = 'smac';
+        // console.log(product);
+
+        // delete product.newProperty;
+        // delete product.biscuit;
+        // console.log(product);
+
+        // const product2 = {
+        //     name: 'shirt',
+        //     ['delivery-time']: '1 day',
+        //     'just-example': "To prove that it's a shortcut if you have a single value in the bracket notation instead of writing it with the bracket you can do it without the bracket and it will still work",
+        //     rating: {
+        //         stars: 4.5,
+        //         count: 87
+        //     },
+        //     fun: function function1() {
+        //         console.log('function inside object');
+        //     }
+        // };
+        // console.log(product2.rating.count);
+        // product2.fun();
+
+        // console.log(product2);
+        // console.log(product2.name);
+        // console.log(product2['name']);
+        // console.log(product2['delivery-time']);
+
+        // console.log(JSON.stringify(product2));
+
+        // // Converting JSON to Js object:
+        // const jsonString = JSON.stringify(product2);
+        // console.log(JSON.parse(jsonString));
+
+        console.log('hello'.length);
+        console.log('hello'.toUpperCase());
+
+        const object1 = {
+            message: 'hello'
+        };
+        const object2 = object1;
+
+        object1.message = 'Good job!';
+        console.log(object1);
+        console.log(object2);
+
+        let b = 2;
+        const a = b;
+        b = 6;
+        console.log(b);
+        console.log(a);
+
+        const object3 = {
+            message: 'Good job!'
+        };
+        console.log(object3 === object1);
+
+        console.log(object2 === object1);
+
+        // Shortcut for objects:
+        
+        const object4 = {
+            message: 'Good job!',
+            price: 799
+        };
+        // const message = object4.message;
+        const { message, price } = object4; //This is called destructuring. This we take the message property out of object4 and save it in a variable called message. This is used when you want to save an object in a varable an it bears the same name with the property and it can be used for multiple properties.
+        console.log(message);
+        console.log(price);
+
+        // Shorthand property
+        const object5 = {
+            // message: message
+            message,// This is used if the property and the variable names are the same. You only need to write it once and it is called the shorthand property,.
+            //Shorthand method: This is simply a shortcut for writing function method.
+            // method: function function1() {
+            //     console.log('method');
+            // }
+            method() {
+                console.log('method');
+            }
+        };
+        console.log(object5);
+        object5.method();
+    </script>
+</body>
+</html>

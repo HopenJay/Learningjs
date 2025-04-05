@@ -1,0 +1,285 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions</title>
+</head>
+<body>
+    <script>
+        function greet() {
+            console.log('Hello!');
+        }
+        greet();     
+        greet();
+        greet();
+        
+        function greet(name) {
+            
+            if(!name) {
+                console.log('Hi there!');
+            } else {
+                console.log(`Hello ${name}!`);
+            }
+        }
+        greet('Simon');
+        greet('John');
+        greet('Peter');
+
+        function convertToFahrenheit(celsius) {
+            return `Fahrenheit = ${(celsius * 9/5) + 32}`;
+        }
+        console.log(convertToFahrenheit(25));
+
+        function convertToCelsius(fahrenheit) {
+            return `Celsius = ${(fahrenheit - 32) * 5/9}`;
+        }
+        console.log(convertToCelsius(86));
+
+        function convertTemperature(degrees, unit) {
+            if(unit === 'C') {
+                return `${convertToFahrenheit(degrees)}F`;
+            } else if(unit === 'F') {
+                return `${convertToCelsius(degrees)}C`};
+            }
+
+            console.log(convertTemperature(25, 'C'));
+            console.log(convertTemperature(86, 'F'));
+
+            function convertLength(length, from, to) {
+                if(from === 'km' && to === 'miles') {
+                    return `${Math.ceil(length * 0.6)}miles`;
+                }else if(from === 'miles' && to === 'km') {
+                    return `${Math.ceil(length * 1.6)}km`;
+                }else if (from === to) {
+                    return length + from;
+                }
+            }
+
+            console.log(convertLength(50, 'miles', 'km'));
+            console.log(convertLength(32, 'km', 'miles'))
+            console.log(convertLength(50, 'km', 'km'));
+            
+            function convertLength(length, from, to) {
+                // if((from || to) !== 'km' || (from || to) !== 'miles' || (from || to) !== 'ft') {
+                //     return `Invalid unit`
+                // }
+
+                if(from !== 'km' && from !== 'miles' && from !== 'ft') {
+                    return `Invalid unit : ${from}`;
+                }else if(to !== 'km' && to !== 'miles' && to !== 'ft') {
+                    return `Invalid unit: ${to}`;
+                }
+
+                if(from === 'km' && to === 'miles') {
+                    return `${Math.ceil(length / 1.6)}miles`;
+                }else if(from === 'miles' && to === 'km') {
+                    return `${Math.ceil(length * 1.6)}km`;
+                }else if (from === to) {
+                    return length + from;
+                }else if (from === 'miles' && to === 'ft') {
+                    return `${length * 5280}ft`;
+                }else if(from === 'ft' && to === 'miles') {
+                    return `${length / 5280}miles`;
+                }else if(from === 'km' && to === 'ft') {
+                    return `${length * 3281}ft`;
+                }else if(from === 'ft' && to === 'km') {
+                    return `${length / 3281}km`;
+                }
+            }
+
+            console.log(convertLength(5, 'miles', 'km'));
+            console.log(convertLength(5, 'miles', 'ft'));
+            console.log(convertLength(5, 'km', 'ft'));
+            console.log(convertLength(5, `Ibs`, `Ibs`));
+
+            
+</script> 
+</body>
+</html> -->
+
+<!-- Calculator Project -->
+
+
+<!-- <!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <p>
+      <button onclick="
+        updateCalculation(1);
+      ">1</button>
+
+      <button onclick="
+        updateCalculation(2);
+      ">2</button>
+
+      <button onclick="
+        updateCalculation(3);
+      ">3</button>
+
+      <button onclick="
+        updateCalculation(' + ');
+      ">+</button>
+    </p>
+
+    <p>
+      <button onclick="
+        updateCalculation(4);
+      ">4</button>
+
+      <button onclick="
+        updateCalculation(5);
+      ">5</button>
+
+      <button onclick="
+        updateCalculation(6);
+      ">6</button>
+
+      <button onclick="
+        updateCalculation(' - ');
+      ">-</button>
+    </p>
+
+    <p>
+      <button onclick="
+        updateCalculation(7);
+      ">7</button>
+
+      <button onclick="
+        updateCalculation(8);
+      ">8</button>
+
+      <button onclick="
+        updateCalculation(9);
+      ">9</button>
+
+      <button onclick="
+        updateCalculation(' * ');
+      ">*</button>
+    </p>
+
+    <p>
+      <button onclick="
+        updateCalculation(0);
+      ">0</button>
+
+      <button onclick="
+        updateCalculation(' . ');
+      ">.</button>
+
+      <button onclick="
+        // Note: eval() takes a string and runs it as code.
+        // Avoid using eval() in real world projects since
+        // it can potentially be given harmful code to run.
+        // Only use eval() for learning purposes.
+        calculation = eval(calculation);
+        console.log(calculation);
+      ">=</button>
+
+      <button onclick="
+        updateCalculation(' / ');
+      ">/</button>
+    </p>
+
+    <p>
+      <button onclick="
+        updateCalculation('');
+      ">Clear</button>
+    </p>
+
+    <script>
+      let calculation = '';
+      function updateCalculation(value) {
+        calculation += value;
+        console.log(calculation);
+      }
+    </script>
+  </body>
+</html> -->
+
+<!-- Cart Quantity -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cart Quantity</title>
+  </head>
+  <body>
+    <button onclick="
+      console.log(`Cart quantity: ${cartQuantity}`);
+    ">Show Quantity</button>
+
+    <button onclick="
+        updateCartQuantity(1);
+    ">Add to Cart</button>
+
+    <button onclick="
+        updateCartQuantity(2);
+    ">+2</button>
+
+    <button onclick="
+        updateCartQuantity(3);
+    ">+3</button>
+
+    <button onclick="
+        updateCartQuantity(4);
+    ">+4</button>
+
+    <button onclick="
+        updateCartQuantity(5);
+    ">+5</button>
+
+    <!-- vvv This code was changed. vvv -->
+    <button onclick="
+        updateCartQuantity(-1);
+    ">Remove from cart</button>
+
+    <button onclick="
+        updateCartQuantity(-2);
+    ">-2</button>
+
+    <button onclick="
+        updateCartQuantity(-3);
+    ">-3</button>
+    <!-- ^^^ This code was changed. ^^^ -->
+
+    <button onclick="
+      cartQuantity = 0;
+      console.log('Cart was reset.');
+      console.log(`Cart quantity: ${cartQuantity}`);
+    ">Reset Cart</button>
+
+    <script>
+      let cartQuantity = 0;
+
+    //   function updateCartQuantity(value) {
+    //     if (cartQuantity + value > 10) {
+    //     alert('The cart is full');
+    //   }else if(cartQuantity + value < 0){
+    //     alert('Not enough items in the cart');
+    //   } else {
+    //     cartQuantity += value;
+    //     console.log(`Cart quantity: ${cartQuantity}`);
+    //   }
+    //   }
+
+    
+    function updateCartQuantity(value) {
+        if (cartQuantity + value > 10) {
+        alert('The cart is full');
+        return;
+      }
+      
+      if(cartQuantity + value < 0){
+        alert('Not enough items in the cart');
+        return;
+      } 
+
+        cartQuantity += value;
+        console.log(`Cart quantity: ${cartQuantity}`);
+    }
+
+    // Note to self I prefer the complete one to the return structure cause I don't understand the return structure that much
+    </script>
+  </body>
+</html>

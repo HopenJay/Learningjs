@@ -1,0 +1,105 @@
+<!-- Calculator Project -->
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="styles/10-calculator-project.css">
+  </head>
+  <body>
+    <p class="js-p js-r"></p>
+
+    <p>
+      <button onclick="
+        updateCalculation(1);
+      ">1</button>
+
+      <button onclick="
+        updateCalculation(2);
+      ">2</button>
+
+      <button onclick="
+        updateCalculation(3);
+      ">3</button>
+
+      <button onclick="
+        updateCalculation(' + ');
+      " class="plus">+</button>
+    </p>
+
+    <p>
+      <button onclick="
+        updateCalculation(4);
+      ">4</button>
+
+      <button onclick="
+        updateCalculation(5);
+      ">5</button>
+
+      <button onclick="
+        updateCalculation(6);
+      ">6</button>
+
+      <button onclick="
+        updateCalculation(' - ');
+      " class="minus">-</button>
+    </p>
+
+    <p>
+      <button onclick="
+        updateCalculation(7);
+      ">7</button>
+
+      <button onclick="
+        updateCalculation(8);
+      ">8</button>
+
+      <button onclick="
+        updateCalculation(9);
+      ">9</button>
+
+      <button onclick="
+        updateCalculation(' * ');
+      " class="multi">*</button>
+    </p>
+
+    <p>
+      <button onclick="
+        updateCalculation(0);
+      ">0</button>
+
+      <button onclick="
+        updateCalculation(' . ');
+      ">.</button>
+
+      <button onclick="
+        // Note: eval() takes a string and runs it as code.
+        // Avoid using eval() in real world projects since
+        // it can potentially be given harmful code to run.
+        // Only use eval() for learning purposes.
+        calculation = eval(calculation);
+        console.log(calculation);
+        para.innerHTML = calculation;
+
+        localStorage.setItem('calculation', calculation);
+      ">=</button>
+
+      <button onclick="
+        updateCalculation(' / ');
+      " class="divide">/</button>
+    </p>
+
+    <p>
+      <button onclick="
+        // updateCalculation('');
+        calculation = '';
+        console.log(calculation);
+        localStorage.setItem('calculation', calculation);
+      ">Clear</button>
+    </p>
+
+    <script src="scripts/10-calculator-project.js">
+
+    </script>
+  </body>
+</html>

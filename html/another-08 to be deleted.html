@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <button onclick="playGame('heads')">
+        heads
+    </button>
+    
+    <button onclick="playGame('tails')">
+        tails
+    </button>
+    <script>
+
+    
+    // const score = {
+    //         wins: 0,
+    //         losses: 0
+    //     };
+    
+    let score_deserialized = JSON.parse(localStorage.getItem('score'));
+    
+    const score = score_deserialized || {
+        wins: 0,
+        losses: 0
+      };
+    function playGame(guess) {
+        const randomNumber = Math.random();
+        const result = randomNumber < 0.5 ? 'heads' : 'tails';
+
+        guess = 'heads';
+        console.log(guess === result ? 'You win!' : 'You lose!');
+
+        if(guess === result) {
+            score.wins +=1;
+        } else {
+            score.losses += 1;
+        }
+
+        console.log(`wins : ${score.wins}, losses: ${score.losses}`);
+
+        
+        let score_serialized = JSON.stringify(score);
+
+        localStorage.setItem('score', score_serialized );
+
+        // let score_deserialized = JSON.parse(localStorage.getItem('score'));
+
+        // console.log(score_deserialized);
+        // const dated = ``
+    }
+
+    //   function playGame(guess) {
+    //     if(guess === 'heads') {
+            
+    //     }
+    //   }
+    </script>
+  </body>
+</html>

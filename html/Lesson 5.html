@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variables</title>
+</head>
+<body>
+    <button onclick="console.log(`Cart Quantity: ${cartQuantity += 4}`)">
+        +4
+    </button>
+
+    <button onclick="console.log(`Cart Quantity: ${cartQuantity += 5}`)">
+        +5
+    </button>
+
+    <button onclick="console.log(`Cart Quantity: ${cartQuantity-1}`)">
+        Remove from cart
+    </button>
+
+    <button onclick="console.log(`Cart Quantity: ${cartQuantity -= 2}`)">
+        -2
+    </button>
+    
+    <button onclick="console.log(`Cart Quantity: ${cartQuantity -= 3}`)">
+        -3
+    </button>
+
+    <div>
+        <p>
+            <button onclick="console.log(calculation += 1)">1</button>
+            
+            <button onclick="console.log(calculation += 2)">2</button>
+            
+            <button onclick="console.log(calculation += 3)">3</button>
+            
+            <button onclick="console.log(calculation +=' + ')">+</button>
+            
+            <button onclick="console.log(eval(calculation))">=</button>
+
+        </p>
+
+        <p>
+            <button onclick="console.log(calculation += 4)">4</button>
+            
+            <button onclick="console.log(calculation += 5)">5</button>
+            
+            <button onclick="console.log(calculation += 6)">6</button>
+            
+            <button onclick="console.log(calculation += ' - ')">-</button>
+            
+            <button onclick="console.log(calculation += ' * ')">*</button>
+        </p>
+
+        <p>
+            <button onclick="console.log(calculation += 7)">7</button>
+            
+            <button onclick="console.log(calculation += 8)">8</button>
+            
+            <button onclick="console.log(calculation += 9)">9</button>
+            
+            <button onclick="console.log(calculation += ' / ')">/</button>
+            
+            <button onclick="console.log(calculation = 0)">clr</button>
+        </p>
+    </div>
+
+    <script>
+        let cartQuantity = 0;
+        let calculation = " ";
+
+        let name = 'JaynHope';
+
+        console.log(`My name is: ${name}`);
+
+        let cost = `${5+3+9}`;
+
+        console.log(`Cost of food: $${cost}`);
+        
+
+        let tax =  cost * 0.1;
+
+        console.log(`Tax(10%): $${tax}`);
+
+        let totalCost = cost + tax;
+
+        console.log(`Total cost: $${totalCost}`);
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+.amazon{
+    border: none;
+    background-color: rgb(255, 216, 20);
+    border-radius: 50px;
+    padding: 10px 60px;
+    font-size: 1em;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.button1{
+    background-color: #000;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    font-weight: bold;
+}
+
+.button2{
+    background-color: rgb(230,230,230);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.toggle{
+    border: none;
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.is-toggled{
+    background-color: #000;
+    color: #fff;
+}

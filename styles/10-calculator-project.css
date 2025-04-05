@@ -1,0 +1,16 @@
+button{
+    border: none;
+    border-radius: 50px;
+    padding: 15px 20px;
+    background-color: rgba(128, 128, 128, 0.8);
+    color: #fff;
+    font-size: 1em;
+}
+
+.js-r{
+    font-size: 2em;
+}
+
+.plus, .minus, .multi, .divide{
+    background-color: orange;
+}
