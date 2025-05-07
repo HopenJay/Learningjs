@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relearning Object</title>
+</head>
+<body>
+
+    <script> 
+        // for(randomNumber = 0; randomNumber < 0.5;) {
+        //     randomNumber = Math.random() * 100;
+        //     console.log(randomNumber);
+
+        // let rand = 0;
+        //  while (rand < 0.5) {
+        //     rand = Math.random();
+        //  }
+
+        //  console.log(rand); 
+        const nums = [10, 20, 30];
+        nums[2] = 99;
+        console.log(nums);
+
+        function getLastValue(array) {
+            return array[array.length-1];
+        }
+        console.log(getLastValue([1,20,22,24,5]));
+        console.log(getLastValue(['hi', 'hello', 'good']));
+
+        function arraySwap(array) {
+            const firstValue = array[0];
+            const lastValue = array[array.length-1];
+            array[0] = lastValue;
+            array[array.length-1] = firstValue;
+            return array;
+        }
+        console.log(arraySwap([1,20,22,24,5]));
+        console.log(arraySwap(['hi', 'hello', 'good']))
+
+        for(i = 0; i < 11; i+=2) {
+            console.log(i);
+        }
+
+        for(i = 5; i >= 0; i--){
+            console.log(i);
+        }
+
+        let d = 0;
+        while(d < 11) {
+            console.log(d);
+            d++
+        }
+
+        let e = 5;
+        while(e >= 0) {
+            console.log(e);
+            e--
+        }
+
+        let one = [1,2,3];
+        let peek = [];
+        for(i = 0; i < one.length; i++) {
+            // on = one[i];
+            // peek.push(on + 1);//
+            //Shorter way of writing it:
+            peek.push(one[i] + 1);
+        }
+        console.log(peek);
+
+        function addOne(array) {
+            let peek = [];
+            for(i = 0; i < array.length; i++) {
+                // on = one[i];
+                // peek.push(on + 1);//
+                //Shorter way of writing it:
+                peek.push(array[i] + 1);
+            }
+            console.log(peek);
+        }
+        addOne([1,2,3]);
+        addOne([-2,-1,0,99]);
+
+        function addNum(array, num) {
+            todo = [];
+            for(i = 0; i < array.length; i++) {
+                todo.push(array[i] + num)
+                // console.log( todo);
+            }
+            console.log(todo);
+        }
+        addNum([1,2,3],2);
+        addNum([1,2,3], 3);
+        addNum([-2,-1,0,99], 2);
+
+        function addArrays(array1, array2) {
+            todo = [];
+            for(let i = 0; i < array1.length; i++) {
+                todo.push(array1[i] + array2[i])
+                // console.log( todo);
+            }
+            console.log(todo);
+        }
+        addArrays([1,1,2], [1,1,3]);
+        addArrays([1,2,3], [4,5,6]);
+        function countPositive(nums) {
+            let jane = [];
+            for(i = 0; i < nums.length; i++) {
+                if(nums[i] > 0) {
+                    // nums.splice(nums[i] < 0)
+                    jane.push(nums);
+                }
+            }
+            console.log(jane.length)
+        }
+        countPositive([1,-3,5]);
+        countPositive([2,4,5,6,-7]);
+        countPositive([-2, 3, -5, 7, 10]);
+
+        function minMax(nums) {
+            const opps = {}
+
+            opps.min = nums[0];
+            opps.max = nums[0];
+            let jane = [];
+            for(let i = 0; i < nums.length; i++) {
+                if (nums[i] < opps.min) {
+                    opps.min = nums[i];
+                }
+                
+                if (nums[i] > opps.max) {
+                    opps.max = nums[i];
+                } 
+                
+                
+                // if(nums.length === 1) {
+                    //     jane.push(nums)
+                    //     opps.min = jane;
+                    //     opps.max = jane;
+                    // }
+                }
+                if(opps.min === undefined && opps.max === undefined) {
+                    opps.min = null;
+                    opps.max = null;
+                }
+                console.log(`Min: ${opps.min}, Max: ${opps.max}`);
+        }
+        minMax([-3,-6,1,2,3,4,5]);
+        minMax([]);
+        minMax([3]);
+
+        function countWords(words) {
+            let count = {};
+            for(let i = 0; i < words.length; i++) {
+                if(count[words[i]]) {
+                    count[words[i]] += 1;
+                } else {
+                    count[words[i]] = 1;
+                }
+            }
+            console.log(count);
+        }
+        countWords(['apple', 'grape', 'apple', 'apple'])
+
+        function double(dub) {
+            const numsdoubled = [];
+
+            for (let i = 0; i < dub.length; i++) {
+                numsdoubled.push(dub[i] *2)
+            }
+            console.log(numsdoubled)
+        }
+        double([2,2,5]);
+
+        let stringss = ['hello', 'world', 'search', 'good'];
+
+        // Set the index to -1 at the start (so we'll assume
+      // the string 'search' doesn't exist in the array).
+      // If we find the string 'search' in the array, we
+      // will update the index.
+        let index = -1;
+        for(let i = 0; i < stringss.length; i++) {
+            if(stringss[i] === 'search') {
+                index = i;
+            } 
+        }
+
+        console.log(index);
+
+        stringss = ['not','found'];
+        index = -1;
+        for (let i = 0; i < stringss.length; i++) {
+            if(stringss[i] === 'search') {
+                index = i;
+            }
+        }
+        console.log(index);
+
+        // Modifications
+        stringss = ['hello', 'world', 'search', 'good', 'search'];
+
+        // Set the index to -1 at the start (so we'll assume
+      // the string 'search' doesn't exist in the array).
+      // If we find the string 'search' in the array, we
+      // will update the index.
+        index = -1;
+        for(let i = 0; i < stringss.length; i++) {
+            if(stringss[i] === 'search') {
+                index = i;
+                break;
+            } 
+        }
+
+        console.log(index);
+
+        // findIndex(['green', 'red', 'blue', 'red'], 'red');
+        // findIndex(['green', 'red', 'blue', 'red'], 'yellow');
+        
+        // function unique(array) {
+            //     const open = [];
+        //     const compa = array[0];
+        //     for(let i = 0; i < array.length; i++) {
+        //         if(array[i] !== compa) {
+            //             console.log(open.push(array[i]));
+            //         }
+            //     }
+            //     console.log(open);
+            // }
+        // console.log(unique(['green', 'red', 'blue', 'red']));
+
+        //     function unique(array) {
+            //     const prad = array;
+            //     const seen = {};
+            //     const result = [];
+            
+    //     for(let i = 0; i < prad.length; i++) {
+    //         const sentence = prad[i];
+    //         if(!seen[sentence]) {
+    //             seen[sentence] = true;
+    //             result.push(sentence);
+    //         }
+    //     }
+    
+    //     return result;
+    // }
+    // The code above was just me doing it without the findIndex.
+    //The code below is the real code.
+    function findIndex(array, word) {
+        let index = -1;
+        for(i = 0; i < array.length; i++) {
+            if(array[i] === word) {
+                index = i;
+                break;
+            }
+        }
+        return index
+    }
+
+    function unique(array) {
+    const result = [];
+
+    for (let i = 0; i < array.length; i++) {
+        const word = array[i]
+        //using the findIndex()function from above, we 
+        //can check if the string is already in the
+        //result array. If it's not in the result array
+        // (index is -1), then add it to the result array.
+        if (findIndex(result, word) === -1) {
+            result.push(word);
+        }
+    }
+    return result;
+}
+
+console.log(unique(['green', 'red', 'blue', 'red']));
+        // const prad = ['green', 'blue', 'red', 'red'];
+        // let trial = prad[0];
+        // for(let i = 0; i < prad.length; i++) {
+        //     if(prad[i] > trial) {
+        //         trial+=1
+        //     }
+        //     console.log(prad[i])
+        // }
+        // console.log(trial)
+        // The code immediately above my comment(that's commented) can't work in any of the way I thought possible due to lexicographical problem
+
+        // function removeEgg(foods = ['egg', 'apple', 'egg', 'egg', 'ham']) {
+            // let fal = foods;
+            // fal = ['egg', 'apple', 'egg', 'egg', 'ham']
+        //     const arrayCopy = foods.slice();
+        //     const food = arrayCopy.reverse();
+        //     const withoutEgg = [];
+        //     let eggsRemoved = 0;
+        //     for(let i = 0; i < food.length; i++) {
+        //         if(food[i] === 'egg' && eggsRemoved < 2) {
+        //             eggsRemoved++
+        //             continue;
+        //         }
+        //         withoutEgg.push(food[i]);
+        //     }
+        //     console.log(withoutEgg.reverse());
+        // }
+        // removeEgg(['egg', 'apple', 'egg', 'egg', 'ham']);
+        // const foods = ['egg', 'apple', 'egg', 'egg', 'ham'];
+        // removeEgg(foods);
+        // console.log(foods);
+
+        // The famous fizzbuzz problem:
+        // for(i = 0; i < 21; i++) {
+        //     if(i % 3 === 0) {
+        //         console.log("Fizz");
+        //     }else if(i % 5 === 0) {
+        //         console.log('Buzz')
+        //     }else if(i % 5 === 0 && i % 3 === 0) {
+        //         console.log
+        //     } else {
+        //         console.log(i)
+        //     }
+
+        // }
+
+        for(let i = 0; i < 5; i++) {
+            console.log('Aya muyeez')
+        }
+
+        function cap (param)  {
+            param()
+        }
+
+        
+
+        cap(function () {
+            console.log('hello4')
+        })
+
+        const add = function () {
+            console.log(2+3);
+        }
+        add();
+        add();
+
+        function runTwice(fun) {
+            fun();
+            fun();
+        }
+
+        runTwice(add);
+        runTwice(function() { console.log('12b');})
+    </script>
+</body>
+</html>

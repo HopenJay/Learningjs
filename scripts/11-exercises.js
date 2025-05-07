@@ -204,17 +204,45 @@ function countWords(words) {
 }
 console.log(countWords(['apple', 'grape', 'apple', 'apple']));
 
-const words = ['hello', 'world', 'search', 'good', 'search'];
-for(let i = 0; i < words.length; i++) {
-    const word = words[i];
-    if(word === 'search') {
-        console.log(i);
-        break;
-    } else {
-        console.log(-1);
-    }
+
+let stringss = ['hello', 'world', 'search', 'good'];
+
+// Set the index to -1 at the start (so we'll assume
+// the string 'search' doesn't exist in the array).
+// If we find the string 'search' in the array, we
+// will update the index.
+let index = -1;
+for(let i = 0; i < stringss.length; i++) {
+    if(stringss[i] === 'search') {
+        index = i;
+    } 
 }
 
+console.log(index);
+
+stringss = ['not','found'];
+index = -1;
+for (let i = 0; i < stringss.length; i++) {
+    if(stringss[i] === 'search') {
+        index = i;
+    }
+}
+console.log(index);
+
+// Modifications
+stringss = ['hello', 'world', 'search', 'good', 'search'];
+
+// Set the index to -1 at the start (so we'll assume
+// the string 'search' doesn't exist in the array).
+// If we find the string 'search' in the array, we
+// will update the index.
+index = -1;
+for(let i = 0; i < stringss.length; i++) {
+    if(stringss[i] === 'search') {
+        index = i;
+        break;
+    } 
+}
 console.log('split');
 
 function findIndex(array, word) {

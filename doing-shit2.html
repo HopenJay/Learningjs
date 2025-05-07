@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <button class="load">Start</button>
+    <button class="carted">Add to cart</button>
+    <p class="pad"></p>
+    <button class="ad">Add</button>
+    <button class="re">Remove</button>
+    <script>
+        const load = document.querySelector('.load');
+        const carted = document.querySelector('.carted');
+        const pad = document.querySelector('.pad');
+        const ad = document.querySelector('.ad');
+        const re = document.querySelector('.re');
+        let TimeoutId 
+        
+        carted.addEventListener('click', () => {
+            pad.textContent = 'Added';
+            let text =false;
+                clearInterval(TimeoutId); 
+                TimeoutId = setTimeout(
+                    function() {
+                        pad.textContent = ''
+                    }, 2000
+                );
+        })
+
+        load.addEventListener('click', () => {
+            load.textContent = 'Loading.....'
+            setTimeout(function () {
+            load.textContent = 'Finished';
+        }, 1000)})
+        let intervalId
+        let isAdd = true
+        let messages = 2;
+        re.addEventListener('click', () => {
+            messages-=1;
+            if(messages < 0) {
+                messages = 0;
+            }
+
+            if(messages === 0) {
+                clearInterval(intervalId)
+            }
+        })
+        ad.addEventListener('click', () => {
+            messages+=1;
+            if(messages > 0) {
+                document.querySelector('title').textContent = "Add";
+        intervalId = setInterval(function() {
+            if(isAdd) {
+            document.querySelector('title').textContent = `(${messages}) New messages`;
+        }else {
+            document.title = 'Add'
+        }
+        isAdd = !isAdd;
+        }, 1000)
+            }
+        });
+
+        function bag() {
+            console.log('hello')
+        }
+
+    </script>
+</body>
+</html>
