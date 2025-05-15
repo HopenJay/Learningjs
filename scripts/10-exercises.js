@@ -1,5 +1,5 @@
 const button = document.querySelector('.js-button');
-const toggle = document.querySelector('.toggle');
+const toggle = document.querySelectorAll('.toggle');
 const toggle1 = document.querySelector('.jss')
 
 function toggled(value) {
@@ -31,4 +31,6 @@ if (button.classList.contains('js-button') === true) {
     console.log('it has it');
 }
 
-
+toggle.forEach((button) => {
+    button.addEventListener('click', () => {toggled(button)});
+})

@@ -41,7 +41,7 @@ products.forEach((product) => {
 
             <div class="product-spacer"></div>
 
-            <div class="added-to-cart">
+            <div class="added-to-cart js-added-test-${product.id}">
                 <img src="images/icons/checkmark.png">
                 Added
             </div>
@@ -70,6 +70,23 @@ document.querySelectorAll('.js-add-to-cart')
                 matchingItem = item;
             }
         });
+
+        const addMsg = document.querySelector(`.js-added-test-${productId}`);
+
+        // let timeout = 2000;
+        let timeoutId;
+
+        addMsg.classList.add('show-sesame');
+
+        if(timeoutId) {
+        clearTimeout(timeoutId);
+    }
+        timeoutId = setTimeout(() => {
+            addMsg.classList.remove('show-sesame');
+            timeoutId = null;           
+        }, 2000);
+
+        
 
         const quantitySelector = document.querySelector(`.js-quantity-selector-${productId}`);
 
