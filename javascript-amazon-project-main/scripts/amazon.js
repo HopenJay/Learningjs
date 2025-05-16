@@ -1,3 +1,5 @@
+import {cart} from '../data/cart.js';
+
 let productsHTML = '';
 
 products.forEach((product) => {
@@ -57,6 +59,7 @@ document.querySelector('.js-products-grid').innerHTML = productsHTML;
 
 // const dropdown = document.querySelectorAll()
 
+const addedMessageTimeoutId = {};
 document.querySelectorAll('.js-add-to-cart')
 .forEach((button) => {
     button.addEventListener('click', () => {
@@ -74,17 +77,19 @@ document.querySelectorAll('.js-add-to-cart')
         const addMsg = document.querySelector(`.js-added-test-${productId}`);
 
         // let timeout = 2000;
-        let timeoutId;
+        // let timeoutId;
 
         addMsg.classList.add('show-sesame');
 
-        if(timeoutId) {
-        clearTimeout(timeoutId);
-    }
-        timeoutId = setTimeout(() => {
-            addMsg.classList.remove('show-sesame');
-            timeoutId = null;           
-        }, 2000);
+            if(addedMessageTimeoutId[productId]) {
+            clearTimeout(addedMessageTimeoutId[productId]);
+        }
+            const timeoutId = setTimeout(() => {
+                addMsg.classList.remove('show-sesame');
+                // timeoutId = null;           
+            }, 2000);
+            addedMessageTimeoutId[productId] = timeoutId;
+        
 
         
 
