@@ -1,4 +1,4 @@
-import {cart} from '../data/cart.js';
+import {cart, addToCart} from '../data/cart.js';
 import {products}  from '../data/products.js';
 
 let productsHTML = '';
@@ -60,53 +60,29 @@ document.querySelector('.js-products-grid').innerHTML = productsHTML;
 
 // const dropdown = document.querySelectorAll()
 
+
+function updateCartQuantity() {
+
+        let cartQuantity = 0;
+
+        cart.forEach((cartItem) => {
+            cartQuantity += cartItem.quantity;
+        });
+
+        document.querySelector('.js-cart-quantity')
+        .innerHTML = cartQuantity;
+}
+
+
 const addedMessageTimeoutId = {};
 document.querySelectorAll('.js-add-to-cart')
 .forEach((button) => {
     button.addEventListener('click', () => {
         const {productId} = button.dataset;// I used destructuring to simplify it. This is the real code:  const productId = button.dataset.productId;
-
-
-        let matchingItem;
-
-        cart.forEach((item) => {
-            if(productId === item.productId) {
-                matchingItem = item;
-            }
-        });
-
-        const addMsg = document.querySelector(`.js-added-test-${productId}`);
-
-        // let timeout = 2000;
-        // let timeoutId;
-
-        addMsg.classList.add('show-sesame');
-
-            if(addedMessageTimeoutId[productId]) {
-            clearTimeout(addedMessageTimeoutId[productId]);
-        }
-            const timeoutId = setTimeout(() => {
-                addMsg.classList.remove('show-sesame');
-                // timeoutId = null;           
-            }, 2000);
-            addedMessageTimeoutId[productId] = timeoutId;
-        
+        addToCart(productId);
+        updateCartQuantity();
 
         
-
-        const quantitySelector = document.querySelector(`.js-quantity-selector-${productId}`);
-
-        const quantity = Number(quantitySelector.value);
-
-        if (matchingItem) {
-            matchingItem.quantity += quantity;
-        } else {
-            cart.push({
-                productId,
-                quantity //Used the shorthand method here. This is the original code/: productId: productId,quantity: quantity   
-            })
-        }
-
 
         let cartQuantity = 0;
 
