@@ -39,8 +39,8 @@ cart.forEach((cartItem) => {
                   <span class="update-quantity-link link-primary js-update-link" data-product-id = "${matchingProduct.id}">
                     Update
                   </span>                  
-                  <input type="text" class="quantity-input  js-quantity-input-${matchingProduct.id}">
-                  <span class="save-quantity-link link-primary js-save-quantity-link" data-product-id="${matchingProduct.id}">Save</span>
+                  <input type="text" class="quantity-input  js-trial js-quantity-input-${matchingProduct.id}">
+                  <span class="save-quantity-link link-primary js-save-quantity-link" data-product-id="${matchingProduct.id}" tabindex = "0">Save</span>
                   <span class="delete-quantity-link link-primary js-delete-link" data-product-id = "${matchingProduct.id}">
                     Delete
                   </span>
@@ -104,8 +104,10 @@ document.querySelectorAll('.js-update-link').forEach((link) => {
 
     const container = document.querySelector(`.js-cart-item-container-${productId}`);
     container.classList.add("is-editing-quantity");
+
   })
 })
+
 
 document.querySelectorAll('.js-save-quantity-link').forEach((link) => {
   link.addEventListener('click', () => {
@@ -131,6 +133,33 @@ document.querySelectorAll('.js-save-quantity-link').forEach((link) => {
     updateCartQuantity();
   })
 });
+
+// U see dis shit I will try it when I'm in a right frame of mind
+    document.querySelectorAll('.quantity-input').forEach((link) => {
+      link.addEventListener('keydown', (e) => {
+      if(e.key === 'Enter') {
+        document.querySelectorAll('.js-save-quantity-link').forEach((save) => {const productId = save.dataset.productId
+              const container = document.querySelector(`.js-cart-item-container-${productId}`);
+              container.classList.remove("is-editing-quantity");
+              const savedNumber = Number(document.querySelector(`.js-quantity-input-${productId}`).value);
+              
+              let newQuantity = savedNumber;
+              // Giving limit to newQuantity;
+              const quantityLabel = document.querySelector(`.js-quantity-label-${productId}`);
+              if (newQuantity >= 0 && newQuantity < 1000) {
+                updateQuantity(productId, newQuantity);
+                quantityLabel.innerHTML = newQuantity;
+              } else {
+                quantityLabel.innerHTML = alert('item exceeds limit');
+                container.classList.add("is-editing-quantity");
+              }
+              
+              updateCartQuantity();
+    }
+  )
+      }
+    })
+  })
 
 document.querySelectorAll('.js-delete-link').forEach((link) => {
     link.addEventListener('click', () => {
