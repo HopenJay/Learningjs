@@ -108,7 +108,8 @@ document.querySelectorAll('.js-update-link').forEach((link) => {
   })
 })
 
-
+// My former code that gave me a fucking headache due to some mismatched logic.
+/*
 document.querySelectorAll('.js-save-quantity-link').forEach((link) => {
   link.addEventListener('click', () => {
     const productId = link.dataset.productId;
@@ -139,8 +140,6 @@ document.querySelectorAll('.js-save-quantity-link').forEach((link) => {
       link.addEventListener('keydown', (e) => {
       if(e.key === 'Enter') {
         document.querySelectorAll('.js-save-quantity-link').forEach((save) => {const productId = save.dataset.productId
-              const container = document.querySelector(`.js-cart-item-container-${productId}`);
-              container.classList.remove("is-editing-quantity");
               const savedNumber = Number(document.querySelector(`.js-quantity-input-${productId}`).value);
               
               let newQuantity = savedNumber;
@@ -155,11 +154,55 @@ document.querySelectorAll('.js-save-quantity-link').forEach((link) => {
               }
               
               updateCartQuantity();
+              const container = document.querySelector(`.js-cart-item-container-${productId}`);
+              container.classList.remove('is-editing-quantity')
     }
   )
       }
     })
   })
+*/
+
+// My present code. Taken from @ayids on github:
+
+document.querySelectorAll('.js-save-quantity-link').forEach((link) => {
+  const productId = link.dataset.productId;
+  const quantityInput = document.querySelector(`.js-quantity-input-${productId}`);
+
+  // Click event
+  link.addEventListener('click', () => {
+    // ThequantityInput variable is passed as an argument to give handleUpdateQuantity function to access it
+    handleUpdateQuantity(productId, quantityInput);
+  });
+
+  // Keydown event
+  quantityInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      handleUpdateQuantity(productId,quantityInput);
+    }
+  });
+});
+
+// The function for the handleUpdateQuantity
+function handleUpdateQuantity(productId, quantityInput) {
+  const newQuantity = Number(quantityInput.value);
+
+  if (newQuantity <= 0 || newQuantity >= 1000) {
+    alert('Quantity must be at least 1 andless than 1000');
+    return; // early return
+  }
+
+  updateQuantity(productId, newQuantity);
+
+  const quantityLabel = document.querySelector(`.js-quantity-label-${productId}`);
+  quantityLabel.innerHTML = newQuantity;
+
+  updateCartQuantity();
+
+  const container =document.querySelector(`.js-cart-item-container-${productId}`);
+  container.classList.remove('is-editing-quantity');
+}
+
 
 document.querySelectorAll('.js-delete-link').forEach((link) => {
     link.addEventListener('click', () => {
