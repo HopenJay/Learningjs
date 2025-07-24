@@ -29,10 +29,8 @@ let matchingItem;
         });
 
         const addMsg = document.querySelector(`.js-added-test-${productId}`);
-
         // let timeout = 2000;
         // let timeoutId;
-
         addMsg.classList.add('show-sesame');
 
             if(addedMessageTimeoutId[productId]) {
@@ -44,9 +42,6 @@ let matchingItem;
             }, 2000);
             addedMessageTimeoutId[productId] = timeoutId;
         
-
-        
-
         const quantitySelector = document.querySelector(`.js-quantity-selector-${productId}`);
 
         const quantity = Number(quantitySelector.value);
@@ -78,7 +73,6 @@ export function removeFromCart(productId) {
     saveToStorage();
 };
 
-
 export function calculateCartQuantity() {
     let cartQuantity = 0;
   
@@ -98,6 +92,20 @@ export function calculateCartQuantity() {
     });
 
     matchingItem.quantity = newQuantity;
+
+    saveToStorage();
+  }
+
+  export function updateDeliveryOption(productId, deliveryOptionId) {
+    let matchingItem;
+
+    cart.forEach((cartItem) => {
+        if(productId === cartItem.productId) {
+            matchingItem = cartItem;
+        }
+    });
+
+    matchingItem.deliveryOptionId = deliveryOptionId;
 
     saveToStorage();
   }
