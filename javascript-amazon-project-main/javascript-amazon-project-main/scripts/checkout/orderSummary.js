@@ -226,7 +226,8 @@ export function renderOrderSummary() {
     // for this stuff supersimpledev made use of a const cartQuantity to put the function into it. Just thought to leave mine the way it is just for maintaining the originality.
   };
 
-  // updateCartQuantity(); TODO: 19/08/2025 Don't forget to uncomment this function I commented it to test things out in jasmine
+  updateCartQuantity(); //TODO: 19/08/2025 Don't forget to uncomment this function I commented it to test things out in jasmine
+  //TODO: UPDATE 20/08/2025 was through with and commited the integration test so I uncommented the updateCartQuantity function
   // The code below was not needed I completely mistook 14e but I'm going to live the code as a proof of my thinking outside the box. Also remeber I also needed to add a parameter in the updateCartQuantity in delete link function
   // function updateCartQuantity(dom) {
   //     let cartQuantity = 0;
