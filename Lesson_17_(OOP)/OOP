@@ -15,3 +15,28 @@ In simplicity because of oop representing the real world in a digital way, it ma
 Another reason why we use OOP is that it's easy to create multiple objects.
 
 Note: In object oriented programming the naming convention is to use PascalCase. In PascalCase you start every word with a capital letter.
+
+27/08/2025: An even better way to generate object.
+Object oriented rogramming have a feature called a class. A class is specifically designed for generatiog object. A class is basically an object generator.A class is defined as the blueprint of an object.
+
+Note: Each object generated from a class is called an instance of the class. In js we can also check if an object is an instance of a class using the code. SYNTAX: object instanceOf class
+
+Note to self: Don't worry or be discouraged if classes are a bit to confusing at first. Just remember:
+Object-Oriented Programming = organizing our code into objects(tries to represent the real world)
+
+Class = help us generate these objects/basically an object generator.
+
+Benefit of Classes:
+i). A class looks like the object that it generates.
+ii). Cleaner than using a function.
+iii). Classes have extra features for Object-oriented Programming.
+First feature is caled a constructor, this let's us run a setup code after generating an object, a constructor let's us put code inside a class.
+
+Note: The constructor method runs like a normal method, we can put code inside and it'll run the code, but the special thing about a constructor is that when we generate an object it will run the constructor automatically, so it's a great place to put setup code.
+
+More details about constructor:
+i). Has to be named 'constructor'
+ii). Should not return anything
+A short cut tha can be used in class is that if we have a property that is = undefined, we can actually remove the = undefine and just leave the property name and don't forget to use a semi-colon.
+
+In short and siimple term a class is just a better way to generate objects in object-oriented programming
