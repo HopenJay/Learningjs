@@ -1,0 +1,17 @@
+Object oriented programming is another style of programming.
+
+How do we use it:
+This is basically organizing our code into objects
+
+Why do we use OOP:
+OOP tries to represent the real world.
+Easy to create multiple objectss
+
+Example using cart:
+In a real world a cart is a physical object, in oop we represent the physical obj in a digital way.
+
+In simplicity because of oop representing the real world in a digital way, it makes the code more intuitive and easier to understand.
+
+Another reason why we use OOP is that it's easy to create multiple objects.
+
+Note: In object oriented programming the naming convention is to use PascalCase. In PascalCase you start every word with a capital letter.
