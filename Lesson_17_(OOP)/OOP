@@ -37,6 +37,13 @@ Note: The constructor method runs like a normal method, we can put code inside a
 More details about constructor:
 i). Has to be named 'constructor'
 ii). Should not return anything
-A short cut tha can be used in class is that if we have a property that is = undefined, we can actually remove the = undefine and just leave the property name and don't forget to use a semi-colon.
+A short cut that can be used in class is that if we have a property that is = undefined, we can actually remove the = undefine and just leave the property name and don't forget to use a semi-colon.
 
 In short and siimple term a class is just a better way to generate objects in object-oriented programming
+
+Private Properties and Methods:
+A private method or property means that method or property can only be accessed inside the class. And can't be changed later on from outside the class.
+
+To make a property or method private or u need to do is make '#' it's prefix or write '#' before the property or method. e.g. '#private'. And properties or method without the '#' keys are public.
+
+Note: A field is the same thing as a property. Why it's important to note is that chrome console, calls it a field.
