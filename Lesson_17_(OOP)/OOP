@@ -47,3 +47,22 @@ A private method or property means that method or property can only be accessed 
 To make a property or method private or u need to do is make '#' it's prefix or write '#' before the property or method. e.g. '#private'. And properties or method without the '#' keys are public.
 
 Note: A field is the same thing as a property. Why it's important to note is that chrome console, calls it a field.
+
+29/08/2025: 
+Another feature of object oriened programming:
+Inheritance: This lets us reuse code between classes. This is a feature of oop that allows one class to get all the properties and methods from another class, so we don't have to copy and paste codes.
+
+NOTE: To use inheritance in js after the class name, you give it the word 'extends' then the parent class you want to inherit from.
+
+NOTE: We use inheritance when we have one class that is a more specific type of another class.
+
+A function used in inheritance that is super useful is called 'super()', this basically calls the constructor of the parent class.
+
+Note: When you don't create a constructor when using inheritance by default it will run the parent constructor.
+
+Note: Discriminator property tells us which type{inheritance} to convert our classes into.
+
+Methd overriding overrides or replaces the parent class with a same method that is in the children class.
+If you need to use the parent method of that same named method in your method, you can do that by calling 'super().mmethodName'.
+
+Polymorphism: Which means we can use a method wiithout needing to know which class it is. It's sort of an alternative to doing if statements. It's just essentially having same method and letting the method decide waht to do in each class call case.
