@@ -66,3 +66,33 @@ Methd overriding overrides or replaces the parent class with a same method that 
 If you need to use the parent method of that same named method in your method, you can do that by calling 'super().mmethodName'.
 
 Polymorphism: Which means we can use a method wiithout needing to know which class it is. It's sort of an alternative to doing if statements. It's just essentially having same method and letting the method decide waht to do in each class call case.
+
+Built-in classes: Classes that are provided by the language. Exampel in js: Date().
+This class basically provides us wih date information.
+
+More details about 'this':
+i). It let's an object access it's own properties.
+ii). It can be used anywhere in our code. NOTE: In module 'this' used outside of a object or a function is = undefined. Originally 'this' used after any of that is = Window
+iii). When we're creating an object. But this will bw undefined. SYNTAX: const obj2 = {
+    a:2,
+    b: this.a
+}; 'this' will return undefined cause obj2 have not been created yet at that point of the code.
+
+NOTE: If we're inside a method we can use 'this' and it will point to a object. If we're outside of a method there's no object to point to and this will be undefined.
+iii). We can use 'this' inside a function. SYNTAX: 
+function logThis () {
+    console.log(this);
+}; We're not inside an object so there's nothing for 'this to point to, so it will return undefined. But however, it has a special feature, when we are inside a function we can change 'this' to whatever we want using a method called '.call' SYNTAX: logThis.call('hello); what we give to .call is going to be the value of this. So that's a special feature of this, inside a function, we can change 'this' to whatever we want using the .call method.
+iv). Arrow functions do not change the value of 'this'. Basically 'this' doesn't really work with arrow function except through invocation. That is calling it from inside another function. SYNTAX: const obj3 = {
+    method: () => {
+        console.log(this);
+    }
+};
+obj3.method(); is = undefined.
+
+NOTE: The reasons why arrow functions are desgned like this is because javascript had a common problem in the past concerning that particular issue. When you're inside a method 'this' points to the object but when you try to do a for Each loop or basically anything involving function callback 'this' points to undefined because it's calling from the function. Hence why arrow function do not change the value of 'this'.
+
+Summary of what I learnt about this:
+i). Inside a method, 'this' points to the outer object
+ii). Inside a function, 'this' = undefined, but can be changed using something like .call()
+iii). Arrow functions do not change the value of 'this'
