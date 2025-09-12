@@ -1,4 +1,5 @@
-import {cart, addToCart, calculateCartQuantity} from '../data/cart.js';
+// import {cart, addToCart, calculateCartQuantity} from '../data/cart.js';
+import {cart} from '../data/cart-class.js';
 import {products}  from '../data/products.js';
 import {formatCurrency} from './utils/money.js';
 
@@ -18,7 +19,7 @@ products.forEach((product) => {
 
             <div class="product-rating-container">
                 <img class="product-rating-stars"
-                src="${product.getStarsUrl}">
+                src="${product.getStarsUrl()}">
                 <div class="product-rating-count link-primary">
                 ${product.rating.count}
                 </div>
@@ -66,8 +67,10 @@ document.querySelector('.js-products-grid').innerHTML = productsHTML;
 
 function updateCartQuantity() {
         document.querySelector('.js-cart-quantity')
-        .innerHTML = calculateCartQuantity();
+        .innerHTML = cart.calculateCartQuantity();
           // for this stuff supersimpledev made use of a const cartQuantity to put the function into it. Just thought to leave mine the way it is just for maintaining the originality.
+        //   console.log(calculateCartQuantity()); just for reference this is for when I used procedural programming cart
+        //   console.log(cart.calculateCartQuantity()); this for oop
 }
 
 updateCartQuantity();
@@ -76,7 +79,7 @@ document.querySelectorAll('.js-add-to-cart')
 .forEach((button) => {
     button.addEventListener('click', () => {
         const {productId} = button.dataset;// I used destructuring to simplify it. This is the real code:  const productId = button.dataset.productId;
-        addToCart(productId);
+        cart.addToCart(productId);
         updateCartQuantity();
 
         

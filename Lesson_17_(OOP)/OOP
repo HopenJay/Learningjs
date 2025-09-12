@@ -95,4 +95,10 @@ NOTE: The reasons why arrow functions are desgned like this is because javascrip
 Summary of what I learnt about this:
 i). Inside a method, 'this' points to the outer object
 ii). Inside a function, 'this' = undefined, but can be changed using something like .call()
-iii). Arrow functions do not change the value of 'this'
+iii). Arrow functions do not change the value of 'this'.
+
+Note to self: Between OOP and procedural programming, it's up to me to decide which I prefer to use in js. But important fact to note OOP is more popular in other languges so it's still useful to know incase I want to work with other programming languafes in the future.
+
+NOTE: General rule
+
+If a class extends another class, all instance properties initialized by the parent (constructor or class fields) are available in the child. You access them via this, just like any other property. And it's also the same for ethods

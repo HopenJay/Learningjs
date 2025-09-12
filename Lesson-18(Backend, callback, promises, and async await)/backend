@@ -1,0 +1,49 @@
+Backend is simply just another computer that manages the data of a website.
+
+HTTP - Hypertext Transfer Protocol is a feature of the Internet used to send messages over the internet.
+Note: XMLHttpRequest is a built-in class provided by Javascript for sending HTTP request.
+
+Types of Request you can send to the backend.
+GET
+POST
+PUT
+DELETE
+
+GET = get some information form the backend.
+
+Terminologies:
+Request - This is the sending of message{http} to the backend/server
+
+Response - The message{http} sent from the backend back to us.
+
+Request-Response Cycle - Have to do with the full completing of a request and it's correlating response {i.e. 1 request n 1 response, makes a cycle}.
+
+Fun Fact: You can send a request to different URL paths of the same URL to get different response.
+
+Note: A backend only supports a certain set of URL paths. If a request is sent to a URL path that is not supported the backend will respond with an error.
+
+Status Vode:
+Whenever we get a response from the backend, the backend also gives us a status code, which tells us the if the request succeded or failed. A status code that starts with 4 or 5 means the requesr failed.
+
+A status code starting with 4 means it was our problem, we sent the request to a URL code that faiiled.
+
+A status code starting with 5 means it was the Backend's problem. E.g. the backend crashed.
+
+A status code that sarts with 2 means the response was successful.
+
+Example of status code numbers:
+405, 404, 500 = failed
+200, 201, 204 = succeeded
+
+How do we know which URL paths are supported?
+There is actually no way to figure out which URL paths are supported{for security reasons}, however backends provide a documentation page that list URL paths that are supported and the kind of response given.
+
+Note: List of URL paths supported is called the backend API.
+API = Application Programming Interface.
+Interface meaning how we interact with something.
+
+Note: URL paths are simply all the way we can interact with the backend, that's why it's called the backend API.
+
+Note: The backend can respnd with different types of data, such as text, JSON, html, image, e.t.c.
+
+Fun fact: Using the browser Is the same thing as making a get request but the cool thing about the browser Is that it actually renders the display instead of showing the data.

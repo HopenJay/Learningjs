@@ -1,3 +1,5 @@
+import { validDeliveryOption } from "./deliveryOptions.js";
+
 class Cart {
     cartItems;
     #localStorageKey;
@@ -88,12 +90,14 @@ class Cart {
     
         this.cartItems.forEach((cartItem) => {
             cartQuantity += cartItem.quantity;
-            return cartQuantity; //24/08/2025 TODO: check if this code is valid
+            //return cartQuantity; //24/08/2025 TODO: check if this code is valid
         });
-        cartQuantity; //24/08/2025 TODO: check if this code is valid
+        return cartQuantity;
+        // cartQuantity; //24/08/2025 TODO: check if this code is valid
 
         //TODO:UPDATE: I added saveToStorage to calculateCartQuantity function, I suspect it's part of the reson why my code calculation resets after refreshing the browser. When I come online I'll check if the code is valid.
-        this.saveToStorage();
+        //TODO: UPDATE 1/09/2025. Just returned it to it's normal way before but commented my solutions incase i might need it.
+        // this.saveToStorage();
     }
 
     updateQuantity(productId, newQuantity) {
@@ -119,13 +123,21 @@ class Cart {
             }
         });
 
+        if(!matchingItem) {
+            return;
+        }
+
+        if(!validDeliveryOption(deliveryOptionId)) {
+            return;
+        }
+
         matchingItem.deliveryOptionId = deliveryOptionId;
 
         this.saveToStorage();
 }
 }
 
-const cart = new Cart('cart-oop');
+export const cart = new Cart('cart-oop');
 const businessCart = new Cart('cart-business');
 
 console.log(cart);

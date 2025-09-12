@@ -1,4 +1,4 @@
-import {cart, removeFromCart, calculateCartQuantity, updateQuantity, updateDeliveryOption} from '../../data/cart.js';
+import {cart} from '../../data/cart-class.js';
 import {products, getProduct} from '../../data/products.js';
 import {formatCurrency} from '../utils/money.js';
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
@@ -9,7 +9,7 @@ import { renderCheckoutHeader } from './checkoutHeader.js';
 export function renderOrderSummary() {
   let cartSummaryHTML = '';
 
-  cart.forEach((cartItem) => {
+  cart.cartItems.forEach((cartItem) => {
       const productId = cartItem.productId;
 
       const matchingProduct = getProduct(productId);
@@ -193,7 +193,7 @@ export function renderOrderSummary() {
       return; // early return
     }
 
-    updateQuantity(productId, newQuantity);
+    cart.updateQuantity(productId, newQuantity);
 
     const quantityLabel = document.querySelector(`.js-quantity-label-${productId}`);
     quantityLabel.innerHTML = newQuantity;
@@ -208,7 +208,7 @@ export function renderOrderSummary() {
   document.querySelectorAll('.js-delete-link').forEach((link) => {
       link.addEventListener('click', () => {
           const productId = link.dataset.productId;
-          removeFromCart(productId);
+          cart.removeFromCart(productId);
 
         //   const container = document.querySelector(`.js-cart-item-container-${productId}`);
         //   container.remove();
@@ -222,7 +222,7 @@ export function renderOrderSummary() {
 
   function updateCartQuantity() {
     
-    document.querySelector('.js-return-to-home-link').innerHTML = `${calculateCartQuantity()} items`;
+    document.querySelector('.js-return-to-home-link').innerHTML = `${cart.calculateCartQuantity()} items`;
     // for this stuff supersimpledev made use of a const cartQuantity to put the function into it. Just thought to leave mine the way it is just for maintaining the originality.
   };
 
@@ -243,7 +243,7 @@ export function renderOrderSummary() {
   document.querySelectorAll('.js-delivery-option').forEach((element) => { 
     element.addEventListener('click', () => {
       const {productId, deliveryOptionId} = element.dataset;
-      updateDeliveryOption(productId, deliveryOptionId);
+      cart.updateDeliveryOption(productId, deliveryOptionId);
       renderOrderSummary();
       renderPaymentSummary();
     });

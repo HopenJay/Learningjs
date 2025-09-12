@@ -1,13 +1,10 @@
-import {addToCart, cart, loadFromStorage, removeFromCart, updateDeliveryOption} from '../../data/cart.js';
+import {cart} from '../../data/cart-class.js';
 
 describe('test suite: addToCart', () => {
 
     beforeEach(() => {
         // Mock localStorage
       spyOn(localStorage, 'setItem');
-      spyOn(localStorage, 'getItem').and.callFake(() => {
-          return JSON.stringify([]);
-      });
 
       // Mock querySelector to prevent null.classList errors
       spyOn(document, 'querySelector').and.callFake((selector) => {
@@ -33,24 +30,24 @@ describe('test suite: addToCart', () => {
           };
         });
 
-        loadFromStorage();
+        cart.cartItems = [];
     });
 
     it('adds an existing product to the cart', () => {
         // TODO: You can write the logic for incrementing quantity here later
         
-        cart.push({
+        cart.cartItems.push({
         productId: 'e43638ce-6aa0-4b85-b27f-e1d07eb678c6',
         quantity: 1,
         deliveryOptionId: '1'
         });
 
-        addToCart('e43638ce-6aa0-4b85-b27f-e1d07eb678c6');
+        cart.addToCart('e43638ce-6aa0-4b85-b27f-e1d07eb678c6');
 
-        expect(cart.length).toEqual(1);
+        expect(cart.cartItems.length).toEqual(1);
         expect(localStorage.setItem).toHaveBeenCalledTimes(1);
-        expect(cart[0].productId).toEqual('e43638ce-6aa0-4b85-b27f-e1d07eb678c6');
-        expect(cart[0].quantity).toEqual(2);
+        expect(cart.cartItems[0].productId).toEqual('e43638ce-6aa0-4b85-b27f-e1d07eb678c6');
+        expect(cart.cartItems[0].quantity).toEqual(2);
         expect(localStorage.setItem).toHaveBeenCalledWith('cart', JSON.stringify([{
           productId: 'e43638ce-6aa0-4b85-b27f-e1d07eb678c6',
           quantity: 2,
@@ -60,12 +57,12 @@ describe('test suite: addToCart', () => {
     });
 
     it('adds a new product to the cart', () => {
-        addToCart('e43638ce-6aa0-4b85-b27f-e1d07eb678c6');
+        cart.addToCart('e43638ce-6aa0-4b85-b27f-e1d07eb678c6');
 
-        expect(cart.length).toEqual(1);
+        expect(cart.cartItems.length).toEqual(1);
         expect(localStorage.setItem).toHaveBeenCalledTimes(1);
-        expect(cart[0].productId).toEqual('e43638ce-6aa0-4b85-b27f-e1d07eb678c6');
-        expect(cart[0].quantity).toEqual(1);
+        expect(cart.cartItems[0].productId).toEqual('e43638ce-6aa0-4b85-b27f-e1d07eb678c6');
+        expect(cart.cartItems[0].quantity).toEqual(1);
 
         // Optional: Verify DOM interaction happened
         expect(document.querySelector).toHaveBeenCalled();
@@ -74,7 +71,7 @@ describe('test suite: addToCart', () => {
           productId: 'e43638ce-6aa0-4b85-b27f-e1d07eb678c6',
           quantity: 1,
           deliveryOptionId: '1'
-        }]));
+        }]));//TODO: 8/9/2025. I think I might have a ptoblem with this 1
         // expect(document.querySelector().classList.add).toHaveBeenCalled(); TODO will ask chatgpt abt this ltr when I switch on my phone. 
         // TODO update: Probably may not come back to this code the test works well now and I got what I needed.
     });
@@ -84,20 +81,21 @@ describe('test suite: remove from cart', () => {
   beforeEach(() => {
     //Mock local storage
     spyOn(localStorage, 'setItem');
-    spyOn(localStorage, 'getItem').and.callFake(() => {
-      return JSON.stringify([]);
-    });
-    loadFromStorage();
+    // spyOn(localStorage, 'getItem').and.callFake(() => {
+    //   return JSON.stringify([]);
+    // });
+    // loadFromStorage();
+    cart.cartItems = [];
   })
 
   it('removes a product in the cart', () => {
-    cart.push({
+    cart.cartItems.push({
         productId: 'e43638ce-6aa0-4b85-b27f-e1d07eb678c6',
         quantity: 1,
         deliveryOptionId: '1'
         });
         
-          removeFromCart('e43638ce-6aa0-4b85-b27f-e1d07eb678c6');
+          cart.removeFromCart('e43638ce-6aa0-4b85-b27f-e1d07eb678c6');
           
           expect(
             cart.length
@@ -105,7 +103,7 @@ describe('test suite: remove from cart', () => {
 
           expect(
             localStorage.setItem
-          ).toHaveBeenCalledTimes(1);
+          ).toHaveBeenCalledTimes(1);v
 
           expect(
             localStorage.setItem
@@ -139,7 +137,7 @@ describe('test suite: remove from cart', () => {
   });
 })
 
-describe('updates delivery option', () => {
+describe('test suite: updates delivery option', () => {
   const productId1 = 'e43638ce-6aa0-4b85-b27f-e1d07eb678c6';
   beforeEach(() => {
     //Mock local Storage
