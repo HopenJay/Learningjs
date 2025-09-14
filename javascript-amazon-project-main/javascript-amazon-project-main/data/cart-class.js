@@ -52,7 +52,7 @@ class Cart {
                 addMsg.classList.remove('show-sesame');
                 // timeoutId = null;           
             }, 2000);
-            addedMessageTimeoutId[productId] = timeoutId;
+            this.addedMessageTimeoutId[productId] = timeoutId;
         
         const quantitySelector = document.querySelector(`.js-quantity-selector-${productId}`);
 
@@ -140,6 +140,6 @@ class Cart {
 export const cart = new Cart('cart-oop');
 const businessCart = new Cart('cart-business');
 
-console.log(cart);
-console.log(businessCart);
-console.log(businessCart instanceof Cart);
+// console.log(cart);
+// console.log(businessCart);
+// console.log(businessCart instanceof Cart);
