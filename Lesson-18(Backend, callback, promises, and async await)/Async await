@@ -1,0 +1,16 @@
+Async await is a shortcode for promises and it removes the use of extra codes.
+
+async simply makes a function return a promise.
+await lets us wait for a function to finish before going to the next step.
+
+NOTE: We can only use await when we are inside an async function.
+
+NOTE: async await can only be used with promises, and it doesn't do anything with a callback
+
+NOTE: The closest functionm to an await have to be async, even if we have a function inside an async function if we put await inside it won't work. The closest function have to be async.
+
+FUN FACT: We can use await with promise.all as well.
+
+async await{summary}:
+It's a shortcut for promises.
+lets us write asynchronous code like normal code.
