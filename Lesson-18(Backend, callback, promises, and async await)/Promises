@@ -1,0 +1,30 @@
+This are better ways to handle asynchronous code.
+
+They are similar to done() function in jasmine. {done() in jasmine makes the code to wait for an asynchronous function to run b4 completing the test}.
+
+This let's us wait for some code to finish before going to the next step.
+
+Note: Promises are built-in class.
+
+Note: Promise iis simply just a way to make callback n  asynchronous code look synchronous.
+
+Promises aid in arranging your asynchronous code in a synchronous reading format using resolve() n then() functions. It's simply just saying when I'm through with this code this is what should happen and it doesn't disturb other codes. It's simply just a way of writing codes concurrently(allowing a single thread to manage multiple task efficiently by switching btw them when one is waiting). Promises in js is basically writing a piece of asynchronous code n running other codes while waiting for the timer of the asynchronous function to elapse before coming back to it with the intent of completing running the code when it's timer has elapsed.
+
+From Deepseek: "Promises are a syntax and pattern for writing asynchronous, non-blocking code in a single-threaded environment. They provide a structured way to handle tasks that take time (like I/O operations) without freezing the program."
+
+syntax:
+
+new Promise((resolve) => {
+    console.log(I'm a fool);
+    resolve();
+}).then(() => {
+    console.log("we're thru");
+});
+
+Why do we use Promises:
+Cuase put simply callback has a big problem being multiple callbacks cause a lot of nesting, and let's be realy nested anything is most of the time straight up confusing so promises solve this problem by letting us flatten our code or just simply keeping them more flat.
+
+Extra features of promises:
+Note:1) We can give resolve() a value n whatever will give to resolve is going to be saved in a parameter inside .then n we can use it. This let's us share a value between 2 steps of a promise.
+2) We can run multiple promises at the same time, using Promise.all{It let's us run multiple promises at the same time and wait for all of them to finish}.
+NOte: In romise.all the values given to resolve gives us n array of value to use.
