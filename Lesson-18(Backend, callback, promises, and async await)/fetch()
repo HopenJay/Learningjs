@@ -1,0 +1,2 @@
+fetch() is a better way to make HTTP requests.
+It also helps us to make request to the backend and fetch() uses a promise instead of a callback to get a response.
